@@ -7,3 +7,4 @@ After creating .env files and configuring it, then run both remote agents follow
 
 With both agents running, execute the local agent with the command on a third terminal window: `uv run main.py`
 
+The Math Agent is called when the user asks for some math calculations and the other one, the Translator Agent, is responsible for tasks related with translations to another language.
