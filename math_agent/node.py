@@ -1,5 +1,6 @@
 from datetime import datetime
 from dotenv import load_dotenv
+import os
 
 from langchain.agents import create_agent
 from langchain.messages import HumanMessage, AIMessage, AnyMessage
@@ -13,9 +14,11 @@ from .prompt import MATH_PROMPT
 
 load_dotenv(dotenv_path="math_agent/.env")
 
+GEMINI_DEFAULT_MODEL = os.getenv("GEMINI_DEFAULT_MODEL", "gemini-2.5-flash")
+
 
 __agent: CompiledStateGraph = create_agent(
-    model=ChatGoogleGenerativeAI(model="gemini-2.5-flash"),
+    model=ChatGoogleGenerativeAI(model=GEMINI_DEFAULT_MODEL),
     tools=[]
 )
 

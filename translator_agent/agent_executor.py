@@ -70,6 +70,7 @@ class TranslatorAgentExecutor(AgentExecutor):
                 )
             else:
                 await updater.complete(message=updater.new_agent_message(parts))
+                break
 
         # result: str = self.agent.invoke(user_message=request_context.get_user_input(), context_id=request_context.context_id)        
 

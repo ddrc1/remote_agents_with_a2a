@@ -2,6 +2,7 @@ from datetime import datetime
 from typing import TypedDict
 from dotenv import load_dotenv
 import json
+import os
 
 from langchain.agents import create_agent
 from langchain.messages import HumanMessage, AIMessage, AnyMessage
@@ -14,6 +15,8 @@ from local_agent.prompt import CONVERSATION_PROMPT
 
 load_dotenv(dotenv_path="math_agent/.env")
 
+GEMINI_DEFAULT_MODEL = os.getenv("GEMINI_DEFAULT_MODEL", "gemini-2.5-flash")
+
 
 class Context(TypedDict):
     remote_agents: dict
@@ -21,7 +24,7 @@ class Context(TypedDict):
 
 
 __agent: CompiledStateGraph = create_agent(
-    model=ChatGoogleGenerativeAI(model="gemini-2.5-flash-lite"),
+    model=ChatGoogleGenerativeAI(model=GEMINI_DEFAULT_MODEL),
     context_schema=Context,
     tools=[send_remote_message]
 )
