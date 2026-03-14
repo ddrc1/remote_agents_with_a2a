@@ -5,4 +5,4 @@ After creating .env files and configuring it, then run both remote agents follow
 3. Open a second terminal window
 4. Insert this command: `uv run python -m math_agent.a2a_server` and type enter
 
-With both agents running, execute the local agent with the command on a third terminal window: uv run main.py
+With both agents running, execute the local agent with the command on a third terminal window: `uv run main.py`
